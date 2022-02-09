@@ -26,8 +26,18 @@ int main(){
 	}
 	file_in.close();
 
-	for (string n : text) {
-		cout << n << endl;
+	for (int i = 0; i < text.size(); i++) {
+		cout << text[i] << endl;
+		text[i].replace(0, 1, " ");
+	}
+	//sort(text.begin(),text.end()); // u can use this
+	//text.erase(unique(text.begin(),text.end()),text.end()); //and don't use loop further
+	for (int i = 0; i < text.size(); i++) {
+		for (int j = i+1; j < text.size(); j++) {
+			if (text[i]==text[j]) {
+				text.erase(text.begin()+i);
+			}
+		}
 	}
 
 	for (int j = 0; j < text.size(); j++){
